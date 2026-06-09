@@ -54,7 +54,7 @@ export const site = {
       icon: "Heart",
       oneLiner: "Slide love-tokens across the board; identical tokens merge up the romance ladder.",
       shot: "/shots/heart-merge.png",
-      playUrl: "https://heart-merge-vinayleokumargmailcoms-projects.vercel.app",
+      playUrl: "https://heart-merge.vercel.app",
       sourceUrl: "#", // TODO: GitHub URL
       accent: "#7b4ea8",
     },
@@ -65,7 +65,7 @@ export const site = {
       icon: "FlaskConical",
       oneLiner: "Pour love-potion colors between jars until each holds a single shade.",
       shot: "/shots/love-lab-sort.png",
-      playUrl: "https://love-lab-sort-vinayleokumargmailcoms-projects.vercel.app",
+      playUrl: "https://love-lab-sort.vercel.app",
       sourceUrl: "#", // TODO: GitHub URL
       accent: "#e85d8a",
     },
