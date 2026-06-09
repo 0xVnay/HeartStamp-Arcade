@@ -54,7 +54,7 @@ export const site = {
       icon: "Heart",
       oneLiner: "Slide love-tokens across the board; identical tokens merge up the romance ladder.",
       shot: "/shots/heart-merge.png",
-      playUrl: "#", // TODO: live URL after deploy
+      playUrl: "https://heart-merge.vercel.app",
       sourceUrl: "#", // TODO: GitHub URL
       accent: "#7b4ea8",
     },
@@ -65,7 +65,7 @@ export const site = {
       icon: "FlaskConical",
       oneLiner: "Pour love-potion colors between jars until each holds a single shade.",
       shot: "/shots/love-lab-sort.png",
-      playUrl: "#", // TODO: live URL after deploy
+      playUrl: "https://love-lab-sort.vercel.app",
       sourceUrl: "#", // TODO: GitHub URL
       accent: "#e85d8a",
     },
@@ -76,7 +76,7 @@ export const site = {
       icon: "Copy",
       oneLiner: "Flip postcards two at a time to pair HeartStamp icons in as few moves as possible.",
       shot: "/shots/stampy-pairs.png",
-      playUrl: "#", // TODO
+      playUrl: "https://stampy-pairs.vercel.app",
       sourceUrl: "#", // TODO
       accent: "#c23e72",
     },
@@ -87,7 +87,7 @@ export const site = {
       icon: "Grid3x3",
       oneLiner: "Swap adjacent love-icons to line up three or more, trigger cascades, and hit the goal.",
       shot: "/shots/cupids-match.png",
-      playUrl: "#", // TODO
+      playUrl: "https://cupids-match.vercel.app",
       sourceUrl: "#", // TODO
       accent: "#16a98c",
     },
