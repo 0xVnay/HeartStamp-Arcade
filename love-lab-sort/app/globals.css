@@ -1,0 +1,903 @@
+:root {
+  --cream: #fff4ee;
+  --rose: #e85d8a;
+  --rose-deep: #c23e72;
+  --blush: #ff8fb1;
+  --plum: #2a1424;
+  --plum-soft: #3d2038;
+  --gold: #f2b65a;
+  --ink: #34202f;
+  --muted: #8a6f7e;
+  --card: #fffaf7;
+  --line: rgba(90, 40, 70, 0.12);
+
+  --radius: 20px;
+  --shadow-soft: 0 10px 30px rgba(80, 25, 55, 0.12);
+  --shadow-lift: 0 18px 40px rgba(80, 25, 55, 0.22);
+
+  --font-body: "Quicksand", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-script: "Caveat", "Quicksand", cursive;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(120% 80% at 50% -10%, #4a2440 0%, var(--plum) 45%, #1d0e19 100%);
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ---------------------------- app shell ---------------------------------- */
+
+.shell {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: env(safe-area-inset-top) 16px calc(16px + env(safe-area-inset-bottom));
+}
+
+/* ------------------------------ topbar ----------------------------------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 4px 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(145deg, var(--blush), var(--rose-deep));
+  box-shadow: var(--shadow-soft);
+  font-size: 20px;
+}
+
+.brand-name {
+  line-height: 1;
+}
+.brand-name strong {
+  display: block;
+  font-weight: 700;
+  font-size: 17px;
+  color: #fff;
+  letter-spacing: 0.2px;
+}
+.brand-name span {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--blush);
+}
+
+.stats {
+  display: flex;
+  gap: 8px;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 7px 12px;
+  text-align: center;
+  min-width: 58px;
+  backdrop-filter: blur(6px);
+}
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+.stat-value {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+}
+.stat-value.credits {
+  color: var(--gold);
+}
+
+/* ------------------------------ panels ----------------------------------- */
+
+.panel {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+  padding: 24px 22px;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 0 20px;
+}
+
+.hero-title {
+  font-family: var(--font-script);
+  font-size: 46px;
+  line-height: 0.95;
+  color: #fff;
+  text-align: center;
+  margin: 4px 0 0;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+.hero-sub {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15px;
+  margin: 6px 18px 4px;
+  line-height: 1.5;
+}
+
+.how {
+  margin: 4px 0 0;
+}
+.how h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  margin: 0 0 14px;
+}
+.how ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.how li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.how .num {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  background: linear-gradient(145deg, var(--blush), var(--rose));
+}
+
+/* ----------------------------- buttons ----------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(145deg, var(--blush), var(--rose-deep));
+  box-shadow: 0 12px 26px rgba(200, 50, 100, 0.4);
+}
+.btn-primary:active {
+  filter: brightness(1.04);
+}
+.btn-ghost {
+  color: var(--rose-deep);
+  background: rgba(232, 93, 138, 0.1);
+  border: 1px solid rgba(232, 93, 138, 0.25);
+}
+.btn-row {
+  display: flex;
+  gap: 10px;
+}
+.btn-row .btn {
+  width: auto;
+  flex: 1;
+  padding: 13px 14px;
+  font-size: 14px;
+  border-radius: 14px;
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --------------------------- game playfield ------------------------------ */
+
+.play {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.playbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 6px 2px 10px;
+}
+.level-chip {
+  font-weight: 700;
+  color: #fff;
+  font-size: 15px;
+}
+.level-chip small {
+  display: block;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--blush);
+}
+.toolbtns {
+  display: flex;
+  gap: 8px;
+}
+.tool {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+.tool:active {
+  transform: scale(0.92);
+}
+.tool:disabled {
+  opacity: 0.35;
+}
+
+/* ----------------------------- glass jars -------------------------------- */
+
+.beaker-area {
+  --jar-w: 60px;
+  --seg-h: calc(var(--jar-w) * 0.62);
+  --jar-h: calc(var(--seg-h) * 4 + 14px);
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 22px clamp(10px, 4vw, 22px);
+  padding: 20px 6px 26px;
+}
+
+/* Outer wrapper — never clipped, so the rim + hint ring are always visible. */
+.jar-slot {
+  position: relative;
+  width: var(--jar-w);
+  padding-top: 9px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.jar-slot.selected {
+  transform: translateY(-14px);
+}
+/* soft shadow grounding the jar on the shelf */
+.jar-slot::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78%;
+  height: 11px;
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.32), transparent 70%);
+  filter: blur(1px);
+  transition: opacity 0.2s ease;
+}
+.jar-slot.selected::after {
+  opacity: 0.4;
+}
+
+/* glossy elliptical glass rim at the neck */
+.jar-rim {
+  position: absolute;
+  top: 4px;
+  left: -3px;
+  right: -3px;
+  height: 11px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.25));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 -2px 3px rgba(120, 60, 90, 0.18);
+  z-index: 3;
+}
+
+/* gold "you can pour here" ring */
+.jar-ring {
+  position: absolute;
+  top: 7px;
+  left: -5px;
+  right: -5px;
+  bottom: -4px;
+  border-radius: 14px 14px 32px 32px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 16px rgba(242, 182, 90, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.jar-slot.pourable .jar-ring {
+  opacity: 1;
+  animation: ringPulse 1.2s ease-in-out infinite;
+}
+@keyframes ringPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(242, 182, 90, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(242, 182, 90, 0.85);
+  }
+}
+
+/* glass body — the ONLY clipped layer */
+.jar {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: var(--jar-h);
+  border-radius: 11px 11px 30px 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.35), inset 0 -10px 16px rgba(120, 60, 90, 0.12),
+    0 6px 14px rgba(40, 18, 36, 0.25);
+  overflow: hidden;
+  padding: 6px 5px;
+}
+
+.liquid {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  gap: 0;
+  z-index: 1;
+}
+
+.seg {
+  position: relative;
+  height: var(--seg-h);
+  flex: none;
+  box-shadow: inset 0 -7px 11px rgba(0, 0, 0, 0.16), inset 0 5px 8px rgba(255, 255, 255, 0.3);
+  animation: settle 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.seg.bottom {
+  border-radius: 0 0 22px 22px;
+}
+/* curved meniscus highlight on the topmost potion */
+.seg.top::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 6%;
+  right: 6%;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+}
+@keyframes settle {
+  from {
+    transform: translateY(-10px);
+    opacity: 0.3;
+  }
+}
+
+/* diagonal shine streak across the glass */
+.jar-gloss {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    108deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.28) 46%,
+    rgba(255, 255, 255, 0.05) 54%,
+    transparent 60%
+  );
+}
+
+.heart-cap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 17px;
+  color: #fff;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+  animation: pop 0.4s ease;
+  z-index: 2;
+}
+@keyframes pop {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+}
+
+.hint-line {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+  min-height: 18px;
+  margin-top: 2px;
+}
+
+/* --------------------------- result overlay ------------------------------ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 8, 17, 0.55);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  z-index: 20;
+  animation: fade 0.25s ease;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+.result {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  animation: rise 0.3s ease;
+}
+@keyframes rise {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+}
+.result .burst {
+  font-size: 48px;
+}
+.result h2 {
+  font-family: var(--font-script);
+  font-size: 38px;
+  color: var(--rose-deep);
+  margin: 4px 0 2px;
+}
+.result p {
+  color: var(--muted);
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+.scoreline {
+  display: flex;
+  justify-content: space-around;
+  margin: 16px 0 20px;
+}
+.scoreline div span {
+  display: block;
+}
+.scoreline .k {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+}
+.scoreline .v {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.scoreline .v.gold {
+  color: var(--gold);
+}
+
+.footnote {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  padding: 14px 0 4px;
+  line-height: 1.5;
+}
+.footnote a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.resume-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(242, 182, 90, 0.16);
+  border: 1px solid rgba(242, 182, 90, 0.4);
+  color: #fff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+}
+.resume-banner button {
+  margin-left: auto;
+  color: var(--gold);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* --------------------------- interactive tutorial ------------------------ */
+
+.coach {
+  background: linear-gradient(135deg, rgba(255, 143, 177, 0.14), rgba(232, 93, 138, 0.08));
+  border: 1px solid rgba(232, 93, 138, 0.2);
+  border-radius: 14px;
+  padding: 14px 16px;
+  min-height: 92px;
+}
+.coach strong {
+  display: block;
+  font-size: 16px;
+  color: var(--rose-deep);
+  margin-bottom: 4px;
+}
+.coach p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.tutorial-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 2px 0 6px;
+}
+.tutorial-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.tutorial-dots span.on {
+  background: var(--gold);
+  transform: scale(1.15);
+}
+
+/* --------------------------- difficulty selector ------------------------- */
+
+.difficulty {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.diff-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 14px 8px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  color: #fff;
+  text-align: center;
+  transition: transform 0.12s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.diff-card:active {
+  transform: scale(0.97);
+}
+.diff-card.active {
+  background: linear-gradient(160deg, rgba(255, 143, 177, 0.28), rgba(232, 93, 138, 0.16));
+  border-color: var(--blush);
+  box-shadow: 0 8px 20px rgba(200, 50, 100, 0.28);
+}
+.diff-emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+.diff-label {
+  font-weight: 700;
+  font-size: 15px;
+}
+.diff-blurb {
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.25;
+  min-height: 26px;
+}
+.diff-best {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.3px;
+}
+.diff-card.active .diff-check {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  font-size: 12px;
+  color: var(--blush);
+}
+
+.section-label {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 10px;
+}
+
+/* mode badge in the play bar */
+.mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* ----------------------------- win confetti ------------------------------ */
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 25;
+}
+.confetti span {
+  position: absolute;
+  top: -8%;
+  font-size: 18px;
+  animation: fall linear forwards;
+  will-change: transform, opacity;
+}
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(115vh) rotate(360deg);
+    opacity: 0.9;
+  }
+}
+
+/* ------------------------- motion & interactivity ------------------------ */
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+.shell {
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* gentle entrance for whichever screen mounts */
+.screen,
+.play,
+.quiz {
+  animation: screenIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes screenIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* stagger the menu panels in */
+.screen > * {
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.screen > *:nth-child(1) {
+  animation-delay: 0.02s;
+}
+.screen > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.screen > *:nth-child(3) {
+  animation-delay: 0.14s;
+}
+.screen > *:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.screen > *:nth-child(5) {
+  animation-delay: 0.26s;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* invalid-pour wobble */
+.jar-slot.shake {
+  animation: shake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  80% {
+    transform: translateX(3px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-6px);
+  }
+  40%,
+  60% {
+    transform: translateX(6px);
+  }
+}
+
+/* floating hearts backdrop */
+.bg-hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-hearts span {
+  position: absolute;
+  bottom: -10%;
+  font-size: 20px;
+  opacity: 0;
+  animation: floatUp linear infinite;
+  filter: blur(0.3px);
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.5;
+  }
+  88% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-118vh) scale(1) rotate(40deg);
+    opacity: 0;
+  }
+}
+.shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* springy result card + score count-up pulse */
+.result {
+  animation: popCard 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes popCard {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+}
+.result .burst {
+  display: inline-block;
+  animation: burstPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes burstPop {
+  0% {
+    transform: scale(0) rotate(-25deg);
+  }
+  55% {
+    transform: scale(1.35) rotate(8deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* the Lottie celebration sits centered behind the result card */
+.celebrate-layer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 0;
+}
+.celebrate-layer > div {
+  width: min(86vw, 420px);
+  height: min(86vw, 420px);
+}
+.overlay .result {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .bg-hearts {
+    display: none;
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "heart-merge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Heart Merge — a HeartStamp swipe-merge puzzle for short waits.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "lottie-react": "^2.4.1",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.4.0"
+  }
+}
