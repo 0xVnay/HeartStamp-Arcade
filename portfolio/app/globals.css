@@ -159,6 +159,10 @@ h3 {
 .nav-links a:hover {
   color: var(--ink);
 }
+.nav-links a.btn-primary,
+.nav-links a.btn-primary:hover {
+  color: #fff;
+}
 
 /* ── buttons ──────────────────────────────────────────────────────────── */
 .btn {

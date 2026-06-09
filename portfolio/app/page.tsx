@@ -68,6 +68,7 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
             >
+              <FileText />
               Resume
             </a>
           </div>
